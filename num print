@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class Recursion {
+    public static int one_to_n(int n){
+        if(n==0){
+            return 0;
+        }
+        else{
+            int num=1+one_to_n(n-1);
+            System.out.println(num);
+            return  num;
+        }
+    }
+    public static void one_to_n2(int n,int n2){
+        if(n<=n2){ 
+            System.out.println(n);
+            one_to_n2(n+1,n2);
+        }
+    }
+    public static void n_to_one(int n){
+        if(n>0){ 
+            System.out.println(n);
+            n_to_one(n-1);
+        }
+    }
+    public static void pattern2(int n,int n2){
+        if(n+1==n2) return;
+        System.out.print("*");
+        pattern2(n,n2+1);
+    }
+    public static void pattern1(int n,int n2){
+        if(n==n2) return;
+        pattern2(n2,1);
+        System.out.println("");
+        pattern1(n, n2+1);
+    }
+    public static void pattern12(int n,int current,int star){
+        if(n<current) return;
+        else if(current>=star){
+            System.out.print("*");
+            pattern12(n, current, star+1);
+        }
+        else{
+            System.out.println("");
+            pattern12(n, current+1, 1);
+        }
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("enter the number:");
+        int num=sc.nextInt();
+        sc.close();
+        //one_to_n(num);
+        //one_to_n2(1, num);
+        //n_to_one(num);
+        //pattern1(6, 0);
+        //pattern12(5, 1,1);
+    }
+}
